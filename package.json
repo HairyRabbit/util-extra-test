@@ -1,0 +1,44 @@
+{
+  "name": "util-extra-test",
+  "private": true,
+  "version": "0.0.0",
+  "description": "utils",
+  "scripts": {
+    "start": "jest --verbose --watch",
+    "test": "jest --coverage",
+    "prebuild": "rm dist -rf",
+    "build": "node --loader ts-node/esm build.ts",
+    "postbuild": "cp package.json dist && cp LICENSE dist && cp README.md dist",
+    "prerelease": "npm run build && npm version patch && cp package.json dist",
+    "release": "cd dist && npm publish"
+  },
+  "files": [
+    "!.pnp.cjs",
+    "!build.ts",
+    "**/*.js",
+    "**/*.js.map",
+    "**/*.mjs",
+    "**/*.mjs.map",
+    "**/*.ts",
+    "**/*.d.ts",
+    "**/*.d.ts.map"
+  ],
+  "repository": "git+https://github.com/expert-elm/util-extra.git",
+  "author": "Rabbit <yfhj1990@hotmali.com>",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/expert-elm/util-extra/issues"
+  },
+  "homepage": "https://github.com/expert-elm/util-extra#readme",
+  "resolutions": {
+    "util-extra": "portal:/F:/workspace/my/util-extra"
+  },
+  "devDependencies": {
+    "terser-webpack-plugin": "^5.1.3",
+    "webpack": "^5.38.1",
+    "webpack-cli": "^4.7.0"
+  },
+  "dependencies": {
+    "util-extra": "../util-extra"
+  }
+}
